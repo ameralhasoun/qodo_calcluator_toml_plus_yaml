@@ -1,0 +1,40 @@
+[github_app]
+pr_commands = [
+   "/describe",
+    "/compliance",
+    "/improve",
+    "/review",
+]
+
+[pr_reviewer] # /review #
+# enable/disable features
+require_estimate_effort_to_review=true
+enable_review_labels_effort=true
+extra_instructions="""\
+Please review this Pull Request using the following checklist:
+
+- **Error Handling:**  
+  Ensure methods handle possible errors or invalid inputs.  
+  ✅ Success: Inputs are validated or wrapped in try-catch blocks.  
+  ❌ Failure: Methods assume inputs are always valid or can cause exceptions.
+
+- **Naming Conventions:**  
+  Check that all class and method names follow C# PascalCase naming.  
+  ✅ Success: Names use PascalCase (e.g., AddNumbers, Calculator).  
+  ❌ Failure: Names use snake_case, camelCase, or inconsistent capitalization.
+
+- **Code Comments:**  
+  Verify that important or public methods include a short descriptive comment.  
+  ✅ Success: Public methods have clear summaries of their purpose.  
+  ❌ Failure: Missing or unclear comments.
+
+- **Console Logging:**  
+  Ensure console outputs are meaningful and descriptive.  
+  ✅ Success: Console.WriteLine messages describe what is printed.  
+  ❌ Failure: Vague or generic outputs.
+
+- **Clean and Readable Code:**  
+  Confirm that code is clean, readable, and properly formatted.  
+  ✅ Success: Consistent indentation, spacing, and simple structure.  
+  ❌ Failure: Unclear logic, messy layout, or inconsistent formatting.
+"""
